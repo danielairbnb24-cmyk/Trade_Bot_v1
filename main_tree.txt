@@ -213,7 +213,7 @@ RunTradingCycle()
 TICK DATA
 =========================================================
 
-UpdateTickData()
+UpdateTickData()==Utilities::ReadPosition()
 │
 ├── UpdateMarket()
 ├── UpdateAccount()
@@ -235,7 +235,7 @@ UpdateBarData()
 POSITION MANAGEMENT
 =========================================================
 
-ManageOpenPositions()
+ManageOpenPositions()=Execution::UpdatePosition()
 │
 ├── UpdatePosition()
 ├── CheckBreakEven()
