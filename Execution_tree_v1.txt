@@ -30,7 +30,6 @@ ExecuteDecision()
 │ └── ExecuteBuy()
 ├── else if Decision == SELL
 │ └── ExecuteSell()
-└── UpdatePosition()
 =========================================================
 BUY EXECUTION
 =========================================================
