@@ -269,29 +269,11 @@ CalculateStopLoss()
 
 CalculateTakeProfit()
 
-NormalizePrice()
-
-NormalizeLot()
-
-NormalizeStops()
-
 =========================================================
 HELPERS
 =========================================================
 
-CurrentSpread()
-
-BrokerStopLevel()
-
-FreezeLevel()
-
-PositionProfit()
-
-PositionAge()
-
 TradeDuration()
-
-HasOpenPosition()
 
 GetCurrentPosition()
 
