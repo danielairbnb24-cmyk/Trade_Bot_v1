@@ -27,33 +27,6 @@ ClearStructures()
 └── ClearLoggerData()
 
 =========================================================
-EXECUTION DATA
-=========================================================
-
-UpdateExecutionData()
-│
-├── UpdateTradeState()
-├── UpdateEntryData()
-├── UpdateRiskData()
-├── UpdateStopData()
-├── UpdateFloatingData()
-├── UpdateAdaptiveData()
-├── ValidateExecutionData()
-└── PublishExecutionData()
-
-=========================================================
-LOGGER DATA
-=========================================================
-
-UpdateLoggerData()
-│
-├── UpdateLogState()
-├── UpdateLogCounters()
-├── UpdateErrorState()
-├── ValidateLoggerData()
-└── PublishLoggerData()
-
-=========================================================
 GLOBAL VALIDATION
 =========================================================
 
