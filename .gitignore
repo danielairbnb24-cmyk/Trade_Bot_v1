@@ -1,5 +1,1 @@
-(indicators_tree_v1.txt and main_tree.txt are source/config files, no build artifacts, dependencies, or temp files detected)
-
-```gitignore
-
-```
+Nothing needs to be added to .gitignore since only a single source file (Structures.mqh) was added and there are no build artifacts, dependencies, or temporary files in the changes.
