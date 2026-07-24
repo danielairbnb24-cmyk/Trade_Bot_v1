@@ -30,31 +30,38 @@ MAIN UPDATE ENGINE
 
 UpdateIndicators()
 │
-├── UpdatePriceData()
+├── ConsumeMarketData()
+│   ├── ReadPriceSnapshot()
+│   └── ReadCandleSnapshot()
+│
 ├── UpdateEMA()
 ├── UpdateRSI()
 ├── UpdateADX()
 ├── UpdateATR()
 ├── UpdateWPR()
-├── UpdateCandleData()
+├── UpdateCandleAnalysis()
 ├── UpdateDerivedData()
 ├── ValidateIndicators()
 └── PublishIndicators()
 
 =========================================================
-PRICE
+PRICE CONSUMPTION
 =========================================================
 
-UpdatePriceData()
+ConsumeMarketData()
 │
-├── ReadOpen()
-├── ReadHigh()
-├── ReadLow()
-├── ReadClose()
-├── ReadBid()
-├── ReadAsk()
-├── ReadSpread()
-└── ReadMidPrice()
+├── ReadPriceSnapshot()
+│   ├── GetLatestBid()
+│   ├── GetLatestAsk()
+│   ├── GetLatestSpread()
+│   └── GetLatestMidPrice()
+│
+└── ReadCandleSnapshot()
+    ├── GetCurrentOpen()
+    ├── GetCurrentHigh()
+    ├── GetCurrentLow()
+    ├── GetCurrentClose()
+    └── ValidateCandleIntegrity()
 
 =========================================================
 EMA
@@ -146,7 +153,7 @@ UpdateWPR()
 CANDLE ANALYSIS
 =========================================================
 
-UpdateCandleData()
+UpdateCandleAnalysis()
 │
 ├── CalculateBody()
 ├── CalculateBodyPercent()

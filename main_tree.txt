@@ -232,6 +232,7 @@ BAR DATA
 UpdateBarData()
 │
 ├── UpdateIndicators()
+│   └── ConsumeMarketData()  // Reads from Utilities cache
 ├── GenerateDecision()
 ├── UpdateStatistics()
 └── ValidateBarData()
