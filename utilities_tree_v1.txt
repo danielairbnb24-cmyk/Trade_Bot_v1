@@ -1,0 +1,366 @@
+=========================================================
+Utilities.mqh
+FINAL FUNCTION TREE (LOCKED V1.0)
+=========================================================
+
+=========================================================
+INITIALIZATION
+=========================================================
+
+InitializeUtilities()
+│
+├── LoadUtilitySettings()
+├── InitializeSymbolCache()
+├── InitializeTimeCache()
+├── InitializePriceCache()
+├── ValidateUtilities()
+└── ResetUtilities()
+
+ShutdownUtilities()
+│
+├── ClearCaches()
+└── ResetUtilities()
+
+=========================================================
+MARKET UTILITIES
+=========================================================
+
+UpdateMarket()
+│
+├── UpdateSymbolInformation()
+│   ├── UpdateSymbol()
+│   ├── UpdateDigits()
+│   ├── UpdatePoint()
+│   ├── UpdateTickSize()
+│   ├── UpdateTickValue()
+│   ├── UpdateContractSize()
+│   ├── UpdateTickValueProfit()
+│   ├── UpdateTickValueLoss()
+│   └── ValidateSymbolInformation()
+│
+├── UpdatePrices()
+│   ├── UpdateBid()
+│   ├── UpdateAsk()
+│   ├── CalculateMidPrice()
+│   ├── CalculateSpread()
+│   ├── CalculateSpreadPoints()
+│   ├── CalculateSpreadPips()
+│   ├── UpdateLastPrice()
+│   └── ValidatePrices()
+│
+├── UpdateCurrentCandle()
+│   ├── UpdateOpen()
+│   ├── UpdateHigh()
+│   ├── UpdateLow()
+│   ├── UpdateClose()
+│   ├── UpdateVolume()
+│   ├── UpdateTime()
+│   └── ValidateCurrentCandle()
+│
+├── UpdatePreviousCandle()
+│   ├── UpdatePreviousOpen()
+│   ├── UpdatePreviousHigh()
+│   ├── UpdatePreviousLow()
+│   ├── UpdatePreviousClose()
+│   ├── UpdatePreviousVolume()
+│   ├── UpdatePreviousTime()
+│   └── ValidatePreviousCandle()
+│
+├── UpdateSession()
+│   ├── DetectTradingSession()
+│   ├── DetectTradingDay()
+│   ├── DetectNewBar()
+│   ├── CheckMarketOpen()
+│   ├── CheckTradingHours()
+│   ├── CheckWeekend()
+│   └── CheckHoliday()
+│
+├── ValidateMarketData()
+│
+└── PublishMarketData()
+
+=========================================================
+ACCOUNT UTILITIES
+=========================================================
+
+UpdateAccount()
+│
+├── UpdateBalance()
+├── UpdateEquity()
+├── UpdateMargin()
+├── UpdateFreeMargin()
+├── UpdateMarginLevel()
+├── UpdateProfit()
+├── UpdateFloatingProfit()
+├── UpdateDrawdown()
+├── UpdateLeverage()
+└── ValidateAccount()
+
+=========================================================
+POSITION UTILITIES
+=========================================================
+
+UpdatePosition()
+│
+├── ReadPosition()
+├── UpdatePositionType()
+├── UpdatePositionVolume()
+├── UpdateEntryPrice()
+├── UpdateCurrentPrice()
+├── UpdateStopLoss()
+├── UpdateTakeProfit()
+├── UpdateProfit()
+├── UpdateSwap()
+├── UpdateCommission()
+├── UpdatePositionAge()
+├── UpdatePeakProfit()
+└── ValidatePosition()
+
+=========================================================
+TIME UTILITIES
+=========================================================
+
+UpdateTime()
+│
+├── UpdateServerTime()
+├── UpdateLocalTime()
+├── UpdateGMTTime()
+├── UpdateBarTime()
+├── UpdateElapsedTime()
+└── ValidateTime()
+
+IsNewBar()
+
+MarketOpen()
+
+TradingSession()
+
+TradingDay()
+
+TimeSinceBar()
+
+TimeSinceTrade()
+
+SecondsToNextBar()
+
+=========================================================
+PRICE UTILITIES
+=========================================================
+
+NormalizePrice()
+
+NormalizeVolume()
+
+NormalizeLots()
+
+NormalizeStopLoss()
+
+NormalizeTakeProfit()
+
+RoundPrice()
+
+RoundLots()
+
+=========================================================
+SPREAD UTILITIES
+=========================================================
+
+CurrentSpread()
+
+SpreadPoints()
+
+SpreadPips()
+
+SpreadAcceptable()
+
+=========================================================
+CANDLE UTILITIES
+=========================================================
+
+CandleBody()
+
+BodyPercent()
+
+CandleRange()
+
+UpperWick()
+
+LowerWick()
+
+UpperWickPercent()
+
+LowerWickPercent()
+
+BullishBody()
+
+BearishBody()
+
+Doji()
+
+StrongBullish()
+
+StrongBearish()
+
+=========================================================
+PRICE ACTION UTILITIES
+=========================================================
+
+BreakoutOccurred()
+
+FalseBreakout()
+
+GapDetected()
+
+HigherHigh()
+
+HigherLow()
+
+LowerHigh()
+
+LowerLow()
+
+=========================================================
+BROKER UTILITIES
+=========================================================
+
+BrokerStopLevel()
+
+FreezeLevel()
+
+MinimumLot()
+
+MaximumLot()
+
+LotStep()
+
+MaximumOrders()
+
+TradeAllowed()
+
+=========================================================
+ACCOUNT VALIDATION
+=========================================================
+
+EnoughMargin()
+
+EnoughFreeMargin()
+
+EnoughBalance()
+
+=========================================================
+POSITION VALIDATION
+=========================================================
+
+HasOpenPosition()
+
+HasBuyPosition()
+
+HasSellPosition()
+
+PositionProfit()
+
+PositionLoss()
+
+PositionAge()
+
+PositionVolume()
+
+=========================================================
+SYMBOL UTILITIES
+=========================================================
+
+PipValue()
+
+PointValue()
+
+TickValue()
+
+TickSize()
+
+ContractSize()
+
+Digits()
+
+=========================================================
+MATH UTILITIES
+=========================================================
+
+Clamp()
+
+Lerp()
+
+MapRange()
+
+MinValue()
+
+MaxValue()
+
+Absolute()
+
+Average()
+
+=========================================================
+ARRAY UTILITIES
+=========================================================
+
+ArrayAverage()
+
+ArrayMaximum()
+
+ArrayMinimum()
+
+ArraySum()
+
+ArraySlope()
+
+=========================================================
+VALIDATION
+=========================================================
+
+ValidatePrice()
+
+ValidateVolume()
+
+ValidateLot()
+
+ValidateStops()
+
+ValidateSpread()
+
+ValidateSymbol()
+
+ValidatePosition()
+
+=========================================================
+HELPERS
+=========================================================
+
+ResetUtilities()
+
+CopyPrice()
+
+CopyRates()
+
+SafeDivide()
+
+BoolToString()
+
+EnumToString()
+
+FormatPrice()
+
+FormatLots()
+
+FormatPercent()
+
+FormatTime()
+
+=========================================================
+DEBUG
+=========================================================
+
+SelfTestUtilities()
+
+RunValidation()
+
+DumpUtilities()

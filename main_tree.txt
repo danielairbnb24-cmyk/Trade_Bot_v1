@@ -1,0 +1,331 @@
+=========================================================
+HybridScalperV3.mq5
+=========================================================
+
+=========================================================
+GLOBAL INPUTS
+=========================================================
+
+General Inputs
+
+Indicator Inputs
+
+Strategy Inputs
+
+Execution Inputs
+
+Dashboard Inputs
+
+Logger Inputs
+
+=========================================================
+GLOBAL ENUMS
+=========================================================
+
+Trading Enums
+
+Indicator Enums
+
+Market Enums
+
+Execution Enums
+
+Dashboard Enums
+
+Logger Enums
+
+=========================================================
+GLOBAL CONSTANTS
+=========================================================
+
+EA Version
+
+Magic Number
+
+Program Constants
+
+Broker Constants
+
+=========================================================
+GLOBAL STRUCTURES
+=========================================================
+
+MarketData Market
+
+IndicatorData Indicators
+
+StrategyData Strategy
+
+ExecutionData Execution
+
+DashboardData Dashboard
+
+LoggerData Logger
+
+=========================================================
+GLOBAL OBJECTS
+=========================================================
+
+CTrade Trade
+
+CPositionInfo Position
+
+CSymbolInfo Symbol
+
+=========================================================
+GLOBAL INDICATOR HANDLES
+=========================================================
+
+FastEMAHandle
+
+MediumEMAHandle
+
+SlowEMAHandle
+
+RSIHandle
+
+ADXHandle
+
+ATRHandle
+
+WilliamsRHandle
+
+=========================================================
+GLOBAL RUNTIME STATE
+=========================================================
+
+EAInitialized
+
+TradingEnabled
+
+NewBar
+
+CurrentTick
+
+CurrentBar
+
+LastBar
+
+LastTickTime
+
+RuntimeError
+
+=========================================================
+INITIALIZATION
+=========================================================
+
+OnInit()
+│
+├── InitializeInputs()
+│
+├── InitializeStructures()
+│
+├── InitializeUtilities()
+│
+├── InitializeIndicators()
+│
+├── InitializeStrategy()
+│
+├── InitializeExecution()
+│
+├── InitializeDashboard()
+│
+├── InitializeLogger()
+│
+├── CreateIndicatorHandles()
+│
+├── ValidateInitialization()
+│
+└── PrintStartupInformation()
+
+=========================================================
+DEINITIALIZATION
+=========================================================
+
+OnDeinit()
+│
+├── ReleaseIndicatorHandles()
+│
+├── ShutdownDashboard()
+│
+├── ShutdownLogger()
+│
+├── ShutdownExecution()
+│
+├── ShutdownStrategy()
+│
+├── ShutdownIndicators()
+│
+├── ShutdownUtilities()
+│
+├── ShutdownStructures()
+│
+└── PrintShutdownInformation()
+
+=========================================================
+MAIN LOOP
+=========================================================
+
+OnTick()
+│
+├── CheckTerminalStatus()
+│
+├── CheckConnection()
+│
+├── DetectNewBar()
+│
+├── RunTradingCycle()
+│
+└── SaveCurrentState()
+
+=========================================================
+TRADING CYCLE
+=========================================================
+
+RunTradingCycle()
+│
+├── ResetTickState()
+│
+├── UpdateTickData()
+│   │
+│   ├── UpdateMarket()
+│   ├── UpdateAccount()
+│   └── UpdatePosition()
+│
+├── IF(NewBar)
+│   │
+│   ├── UpdateBarData()
+│   │   ├── UpdateIndicators()
+│   │   ├── GenerateDecision()
+│   │   └── UpdateStatistics()
+│   │
+│   └── END IF
+│
+├── ExecuteDecision()
+│
+├── ManageOpenPositions()
+│
+├── UpdateDashboard()
+│
+└── LogCycle()
+
+=========================================================
+TICK DATA
+=========================================================
+
+UpdateTickData()
+│
+├── UpdateMarket()
+├── UpdateAccount()
+├── UpdatePosition()
+└── ValidateTickData()
+
+=========================================================
+BAR DATA
+=========================================================
+
+UpdateBarData()
+│
+├── UpdateIndicators()
+├── GenerateDecision()
+├── UpdateStatistics()
+└── ValidateBarData()
+
+=========================================================
+POSITION MANAGEMENT
+=========================================================
+
+ManageOpenPositions()
+│
+├── UpdatePosition()
+├── CheckBreakEven()
+├── CheckTrailingStop()
+├── CheckAdaptiveManagement()
+├── CheckExitConditions()
+└── UpdateTradeStatistics()
+
+=========================================================
+OPTIONAL EVENTS
+=========================================================
+
+OnTrade()
+
+OnTradeTransaction()
+
+OnTimer()
+
+OnChartEvent()
+
+=========================================================
+RUNTIME VALIDATION
+=========================================================
+
+CheckTerminalStatus()
+│
+├── TerminalConnected()
+├── AutoTradingEnabled()
+├── SymbolSelected()
+└── TimeSynchronized()
+
+CheckConnection()
+│
+├── BrokerConnected()
+├── ServerResponding()
+└── MarketDataAvailable()
+
+ValidateInitialization()
+
+ValidateTickData()
+
+ValidateBarData()
+
+=========================================================
+STATE MANAGEMENT
+=========================================================
+
+ResetTickState()
+│
+├── ResetStrategyDecision()
+├── ResetSignalScores()
+├── ResetTemporaryFlags()
+└── ClearRuntimeErrors()
+
+SaveCurrentState()
+│
+├── SaveCurrentBar()
+├── SaveCurrentIndicators()
+├── SaveCurrentPosition()
+└── SaveExecutionState()
+
+=========================================================
+STATISTICS
+=========================================================
+
+UpdateStatistics()
+│
+├── UpdateCycleCounter()
+├── UpdateTickCounter()
+├── UpdateRuntime()
+└── UpdatePerformance()
+
+=========================================================
+ERROR HANDLING
+=========================================================
+
+HandleRecoverableError()
+
+HandleFatalError()
+
+=========================================================
+HELPERS
+=========================================================
+
+InitializeInputs()
+
+CreateIndicatorHandles()
+
+ReleaseIndicatorHandles()
+
+PrintStartupInformation()
+
+PrintShutdownInformation()

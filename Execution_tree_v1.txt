@@ -1,0 +1,292 @@
+=========================================================
+Execution.mqh
+=========================================================
+
+=========================================================
+INITIALIZATION
+=========================================================
+
+InitializeExecution()
+│
+├── LoadExecutionInputs()
+├── ValidateExecutionInputs()
+├── InitializeTradeEngine()
+├── InitializeRiskManager()
+├── ResetExecution()
+└── ResetTradeState()
+
+ShutdownExecution()
+│
+├── CloseResources()
+└── ResetExecution()
+
+=========================================================
+MAIN ENGINE
+=========================================================
+
+ExecuteDecision()
+│
+├── CanTrade()
+│
+├── ExecuteBuy()
+│
+├── ExecuteSell()
+│
+└── UpdatePosition()
+
+=========================================================
+BUY EXECUTION
+=========================================================
+
+ExecuteBuy()
+│
+├── PrepareBuyOrder()
+│
+│   ├── CalculateLotSize()
+│   │   ├── FixedLot()
+│   │   ├── RiskBasedLot()
+│   │   └── NormalizeLot()
+│   │
+│   ├── CalculateEntryPrice()
+│   │
+│   ├── CalculateStopLoss()
+│   │   ├── ATRStopLoss()
+│   │   ├── FixedStopLoss()
+│   │   └── NormalizeSL()
+│   │
+│   ├── CalculateTakeProfit()
+│   │   ├── FixedTakeProfit()
+│   │   ├── RiskRewardTakeProfit()
+│   │   └── NormalizeTP()
+│   │
+│   └── ValidateTrade()
+│
+├── SendBuyOrder()
+│
+├── ProcessTradeResult()
+│
+└── StoreTradeInformation()
+
+=========================================================
+SELL EXECUTION
+=========================================================
+
+ExecuteSell()
+│
+├── PrepareSellOrder()
+│
+│   ├── CalculateLotSize()
+│   │   ├── FixedLot()
+│   │   ├── RiskBasedLot()
+│   │   └── NormalizeLot()
+│   │
+│   ├── CalculateEntryPrice()
+│   │
+│   ├── CalculateStopLoss()
+│   │   ├── ATRStopLoss()
+│   │   ├── FixedStopLoss()
+│   │   └── NormalizeSL()
+│   │
+│   ├── CalculateTakeProfit()
+│   │   ├── FixedTakeProfit()
+│   │   ├── RiskRewardTakeProfit()
+│   │   └── NormalizeTP()
+│   │
+│   └── ValidateTrade()
+│
+├── SendSellOrder()
+│
+├── ProcessTradeResult()
+│
+└── StoreTradeInformation()
+
+=========================================================
+POSITION MANAGEMENT
+=========================================================
+
+UpdatePosition()
+│
+├── UpdateTradeInformation()
+│
+├── UpdateFloatingProfit()
+│
+├── UpdateTradeStage()
+│
+├── ManageStopLoss()
+│
+├── ManageTakeProfit()
+│
+├── CheckBreakEven()
+│
+├── CheckTrailingStop()
+│
+├── CheckAdaptiveManagement()
+│
+├── CheckExitConditions()
+│
+└── UpdateTradeStatistics()
+
+=========================================================
+STOP LOSS MANAGEMENT
+=========================================================
+
+ManageStopLoss()
+│
+├── FixedStopManager()
+│
+├── ATRStopManager()
+│
+├── TightenStopLoss()
+│
+├── WidenStopLoss()
+│
+└── ModifyStopLoss()
+
+=========================================================
+TAKE PROFIT MANAGEMENT
+=========================================================
+
+ManageTakeProfit()
+│
+├── FixedTarget()
+│
+├── TightenTakeProfit()
+│
+├── ExtendTakeProfit()
+│
+└── ModifyTakeProfit()
+
+=========================================================
+BREAK EVEN
+=========================================================
+
+CheckBreakEven()
+│
+├── BreakEvenReached()
+├── CalculateBreakEvenPrice()
+└── MoveToBreakEven()
+
+=========================================================
+TRAILING STOP
+=========================================================
+
+CheckTrailingStop()
+│
+├── TrailingEnabled()
+├── CalculateTrailingStop()
+├── ValidateTrailingStop()
+└── MoveTrailingStop()
+
+=========================================================
+ADAPTIVE MANAGEMENT
+=========================================================
+
+CheckAdaptiveManagement()
+│
+├── DetectTradeEnvironment()
+│
+├── DetectTradeMomentum()
+│
+├── DetectOverBoughtCondition()
+│
+├── DetectOverSoldCondition()
+│
+├── DetectRangeCondition()
+│
+├── DetectTrendCondition()
+│
+├── AdjustStopLoss()
+│
+├── AdjustTakeProfit()
+│
+└── LockProfit()
+
+=========================================================
+EXIT MANAGEMENT
+=========================================================
+
+CheckExitConditions()
+│
+├── StopLossHit()
+├── TakeProfitHit()
+├── ManualCloseRequested()
+├── StrategyCloseRequested()
+└── ClosePosition()
+
+=========================================================
+TRADE VALIDATION
+=========================================================
+
+CanTrade()
+│
+├── CheckTradeAllowed()
+├── CheckConnection()
+├── CheckSpread()
+├── CheckMargin()
+├── CheckVolume()
+├── CheckBrokerStops()
+├── CheckFreezeLevel()
+├── CheckSymbolTrading()
+└── CheckOpenPosition()
+
+ValidateTrade()
+│
+├── ValidateEntry()
+├── ValidateLot()
+├── ValidateSL()
+├── ValidateTP()
+└── ValidateRisk()
+
+=========================================================
+TRADE RESULTS
+=========================================================
+
+ProcessTradeResult()
+│
+├── TradeSuccessful()
+├── TradeFailed()
+├── LogTrade()
+├── LogTradeError()
+└── UpdateStatistics()
+
+=========================================================
+PRICE & LOT UTILITIES
+=========================================================
+
+CalculateLotSize()
+
+CalculateEntryPrice()
+
+CalculateStopLoss()
+
+CalculateTakeProfit()
+
+NormalizePrice()
+
+NormalizeLot()
+
+NormalizeStops()
+
+=========================================================
+HELPERS
+=========================================================
+
+CurrentSpread()
+
+BrokerStopLevel()
+
+FreezeLevel()
+
+PositionProfit()
+
+PositionAge()
+
+TradeDuration()
+
+HasOpenPosition()
+
+GetCurrentPosition()
+
+ResetExecution()
+
+ResetTradeState()

@@ -1,0 +1,129 @@
+=========================================================
+Dashboard.mqh
+=========================================================
+
+INITIALIZATION
+
+InitializeDashboard()
+│
+├── LoadDashboardInputs()
+├── CreateDashboard()
+└── ResetDashboard()
+
+ShutdownDashboard()
+│
+└── DestroyDashboard()
+
+=========================================================
+MAIN ENGINE
+=========================================================
+
+UpdateDashboard()
+│
+├── UpdateMarketPanel()
+├── UpdateIndicatorPanel()
+├── UpdateStrategyPanel()
+├── UpdateExecutionPanel()
+├── UpdateStatisticsPanel()
+└── RefreshDashboard()
+
+=========================================================
+MARKET PANEL
+=========================================================
+
+UpdateMarketPanel()
+│
+├── ShowSymbol()
+├── ShowTimeframe()
+├── ShowSpread()
+├── ShowSession()
+├── ShowBidAsk()
+└── ShowCurrentCandle()
+
+=========================================================
+INDICATOR PANEL
+=========================================================
+
+UpdateIndicatorPanel()
+│
+├── ShowEMA()
+├── ShowRSI()
+├── ShowFilteredRSI()
+├── ShowADX()
+├── ShowATR()
+├── ShowWPR()
+└── ShowIndicatorStatus()
+
+=========================================================
+STRATEGY PANEL
+=========================================================
+
+UpdateStrategyPanel()
+│
+├── ShowMarketRegime()
+├── ShowBuyScore()
+├── ShowSellScore()
+├── ShowSignalWeights()
+├── ShowDecision()
+├── ShowDecisionReason()
+└── ShowSignalStates()
+
+=========================================================
+EXECUTION PANEL
+=========================================================
+
+UpdateExecutionPanel()
+│
+├── ShowPosition()
+├── ShowEntry()
+├── ShowSL()
+├── ShowTP()
+├── ShowBreakEven()
+├── ShowTrailing()
+├── ShowAdaptiveMode()
+└── ShowFloatingProfit()
+
+=========================================================
+STATISTICS PANEL
+=========================================================
+
+UpdateStatisticsPanel()
+│
+├── ShowDailyStats()
+├── ShowCurrentTrade()
+├── ShowWinRate()
+├── ShowProfit()
+├── ShowDrawdown()
+└── ShowTradeCount()
+
+=========================================================
+DRAWING
+=========================================================
+
+DrawText()
+
+DrawValue()
+
+DrawLabel()
+
+DrawRectangle()
+
+UpdateObject()
+
+DeleteObject()
+
+=========================================================
+HELPERS
+=========================================================
+
+RefreshDashboard()
+
+ResetDashboard()
+
+FormatNumber()
+
+FormatPrice()
+
+FormatPercent()
+
+ColorByState()

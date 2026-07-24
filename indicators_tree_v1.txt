@@ -1,0 +1,236 @@
+=========================================================
+Indicators.mqh
+=========================================================
+
+INITIALIZATION
+│
+├── InitializeIndicators()
+│   ├── CreateIndicatorHandles()
+│   │   ├── CreateEMAHandles()
+│   │   ├── CreateRSIHandle()
+│   │   ├── CreateADXHandle()
+│   │   ├── CreateATRHandle()
+│   │   └── CreateWPRHandle()
+│   │
+│   ├── VerifyIndicatorHandles()
+│   ├── InitializeBuffers()
+│   ├── WarmupIndicators()
+│   └── ResetIndicators()
+│
+└── ShutdownIndicators()
+    ├── ReleaseEMAHandles()
+    ├── ReleaseRSIHandle()
+    ├── ReleaseADXHandle()
+    ├── ReleaseATRHandle()
+    └── ReleaseWPRHandle()
+
+=========================================================
+MAIN UPDATE ENGINE
+=========================================================
+
+UpdateIndicators()
+│
+├── UpdatePriceData()
+├── UpdateEMA()
+├── UpdateRSI()
+├── UpdateADX()
+├── UpdateATR()
+├── UpdateWPR()
+├── UpdateCandleData()
+├── UpdateDerivedData()
+├── ValidateIndicators()
+└── PublishIndicators()
+
+=========================================================
+PRICE
+=========================================================
+
+UpdatePriceData()
+│
+├── ReadOpen()
+├── ReadHigh()
+├── ReadLow()
+├── ReadClose()
+├── ReadBid()
+├── ReadAsk()
+├── ReadSpread()
+└── ReadMidPrice()
+
+=========================================================
+EMA
+=========================================================
+
+UpdateEMA()
+│
+├── ReadFastEMA()
+├── ReadMediumEMA()
+├── ReadSlowEMA()
+│
+├── CalculateEMAAlignment()
+│
+├── CalculateEMASpread()
+│
+├── CalculateFastEMASlope()
+├── CalculateMediumEMASlope()
+├── CalculateSlowEMASlope()
+│
+├── CalculateFastEMAVelocity()
+├── CalculateMediumEMAVelocity()
+└── CalculateSlowEMAVelocity()
+
+=========================================================
+RSI
+=========================================================
+
+UpdateRSI()
+│
+├── ReadRSI()
+│
+├── StorePreviousRSI()
+│
+├── CalculateRSIVelocity()
+│
+├── CalculateRSIAcceleration()
+│
+├── CalculateFilteredRSI()
+│   ├── RemoveSingleBarNoise()
+│   ├── RemoveDoubleBarNoise()
+│   ├── IgnoreMinorOscillation()
+│   ├── ConfirmPersistence()
+│   └── PublishFilteredRSI()
+│
+└── UpdateRSIDirection()
+
+=========================================================
+ADX
+=========================================================
+
+UpdateADX()
+│
+├── ReadADX()
+│
+├── StorePreviousADX()
+│
+├── CalculateADXSlope()
+│
+├── CalculateADXVelocity()
+│
+├── CalculateADXAcceleration()
+│
+└── UpdateADXDirection()
+
+=========================================================
+ATR
+=========================================================
+
+UpdateATR()
+│
+├── ReadATR()
+├── NormalizeATR()
+├── ConvertATRToPoints()
+├── CalculateATRVelocity()
+└── CalculateATRAcceleration()
+
+=========================================================
+WILLIAMS %R
+=========================================================
+
+UpdateWPR()
+│
+├── ReadWPR()
+├── StorePreviousWPR()
+├── CalculateWPRVelocity()
+└── UpdateWPRDirection()
+
+=========================================================
+CANDLE ANALYSIS
+=========================================================
+
+UpdateCandleData()
+│
+├── CalculateBody()
+├── CalculateBodyPercent()
+├── CalculateRange()
+├── CalculateUpperWick()
+├── CalculateLowerWick()
+├── CalculateUpperWickPercent()
+├── CalculateLowerWickPercent()
+├── DetermineDirection()
+├── DetermineStrength()
+└── DetectDoji()
+
+=========================================================
+DERIVED VALUES
+=========================================================
+
+UpdateDerivedData()
+│
+├── CalculateMomentumStrength()
+├── CalculateTrendStrength()
+├── CalculateVolatilityStrength()
+└── CalculateAverageRange()
+
+=========================================================
+VALIDATION
+=========================================================
+
+ValidateIndicators()
+│
+├── ValidateEMA()
+├── ValidateRSI()
+├── ValidateADX()
+├── ValidateATR()
+├── ValidateWPR()
+├── ValidatePriceData()
+└── ValidateBuffers()
+
+=========================================================
+PUBLISH DATA
+=========================================================
+
+PublishIndicators()
+│
+├── PublishEMA()
+├── PublishRSI()
+├── PublishFilteredRSI()
+├── PublishADX()
+├── PublishATR()
+├── PublishWPR()
+├── PublishCandleData()
+└── PublishPriceData()
+
+=========================================================
+MATHEMATICAL HELPERS
+=========================================================
+
+CalculateSlope()
+
+CalculateVelocity()
+
+CalculateAcceleration()
+
+Difference()
+
+AbsoluteDifference()
+
+PercentageChange()
+
+NormalizeValue()
+
+ClampValue()
+
+=========================================================
+BUFFER HELPERS
+=========================================================
+
+CopySingleBuffer()
+
+CopyMultipleBuffer()
+
+IndicatorReady()
+
+HandleValid()
+
+ResetIndicators()
+
+ReleaseHandles()

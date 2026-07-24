@@ -1,0 +1,123 @@
+=========================================================
+Logger.mqh
+=========================================================
+
+INITIALIZATION
+
+InitializeLogger()
+│
+├── LoadLoggerInputs()
+├── OpenLogFiles()
+├── CreateLogHeaders()
+└── ResetLogger()
+
+ShutdownLogger()
+│
+├── FlushLogs()
+└── CloseLogFiles()
+
+=========================================================
+MAIN LOGGER
+=========================================================
+
+LogCycle()
+│
+├── LogMarket()
+├── LogIndicators()
+├── LogStrategy()
+├── LogExecution()
+└── LogPerformance()
+
+=========================================================
+MARKET
+=========================================================
+
+LogMarket()
+│
+├── LogPrice()
+├── LogSpread()
+├── LogTime()
+├── LogSession()
+└── LogCandle()
+
+=========================================================
+INDICATORS
+=========================================================
+
+LogIndicators()
+│
+├── LogEMA()
+├── LogRSI()
+├── LogFilteredRSI()
+├── LogADX()
+├── LogATR()
+├── LogWPR()
+└── LogDerivedValues()
+
+=========================================================
+STRATEGY
+=========================================================
+
+LogStrategy()
+│
+├── LogMarketRegime()
+├── LogBuyScore()
+├── LogSellScore()
+├── LogWeights()
+├── LogDecision()
+├── LogDecisionReason()
+├── LogSignalStates()
+└── LogDecisionFilters()
+
+=========================================================
+EXECUTION
+=========================================================
+
+LogExecution()
+│
+├── LogOrderRequest()
+├── LogOrderResult()
+├── LogPosition()
+├── LogSLTP()
+├── LogTrailing()
+├── LogBreakEven()
+├── LogAdaptiveManagement()
+└── LogExit()
+
+=========================================================
+ERRORS
+=========================================================
+
+LogError()
+│
+├── LogIndicatorError()
+├── LogStrategyError()
+├── LogExecutionError()
+├── LogBrokerError()
+└── LogSystemError()
+
+=========================================================
+STATISTICS
+=========================================================
+
+LogPerformance()
+│
+├── LogWinRate()
+├── LogProfit()
+├── LogDrawdown()
+├── LogTradeStatistics()
+└── LogRuntime()
+
+=========================================================
+HELPERS
+=========================================================
+
+WriteLog()
+
+WriteCSV()
+
+WriteDebug()
+
+Timestamp()
+
+FormatLogLine()

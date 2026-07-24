@@ -1,0 +1,245 @@
+=========================================================
+Strategy.mqh
+=========================================================
+
+=========================================================
+INITIALIZATION
+=========================================================
+
+InitializeStrategy()
+│
+├── LoadStrategyInputs()
+├── LoadSignalWeights()
+├── LoadThresholds()
+├── ValidateStrategyInputs()
+├── ResetStrategy()
+└── ResetDecision()
+
+ShutdownStrategy()
+
+=========================================================
+MAIN ENGINE
+=========================================================
+
+GenerateDecision()
+│
+├── ResetDecision()
+│
+├── UpdateMarketRegime()
+│
+├── CalculateBuyScore()
+│
+├── CalculateSellScore()
+│
+├── CompareScores()
+│
+├── ApplyMinimumScore()
+│
+├── ApplyEMAMandate()
+│
+├── ApplyDecisionFilters()
+│
+├── ResolveConflicts()
+│
+├── SelectFinalDecision()
+│
+└── PublishDecision()
+
+=========================================================
+MARKET REGIME
+=========================================================
+
+UpdateMarketRegime()
+│
+├── DetectTrendMarket()
+│   ├── EvaluateEMAAlignment()
+│   ├── EvaluateEMASlope()
+│   ├── EvaluateADXStrength()
+│   └── ConfirmTrend()
+│
+├── DetectRangeMarket()
+│   ├── EvaluateFlatEMA()
+│   ├── EvaluateWeakADX()
+│   ├── EvaluateFilteredRSI()
+│   └── ConfirmRange()
+│
+├── DetectTransitionMarket()
+│   ├── EvaluateChangingEMA()
+│   ├── EvaluateChangingADX()
+│   └── ConfirmTransition()
+│
+└── PublishMarketRegime()
+
+=========================================================
+BUY SCORING
+=========================================================
+
+CalculateBuyScore()
+│
+├── ResetBuyScore()
+│
+├── EvaluateEMA(BUY)
+│   ├── CheckEMAAlignment(BUY)
+│   ├── CheckEMASlope(BUY)
+│   ├── CheckEMADistance(BUY)
+│   └── AddSignal()
+│
+├── EvaluateRSI(BUY)
+│   ├── SelectRSIProfile()
+│   │   ├── TrendRSIZones()
+│   │   └── RangeRSIZones()
+│   │
+│   ├── CheckFilteredRSI(BUY)
+│   ├── CheckRSIVelocity(BUY)
+│   ├── CheckRSIAcceleration(BUY)
+│   ├── ValidateRSIZone(BUY)
+│   └── AddSignal()
+│
+├── EvaluateADX(BUY)
+│   ├── CheckADXThreshold()
+│   ├── CheckADXSlope(BUY)
+│   ├── CheckADXAcceleration(BUY)
+│   ├── ValidateTrendStrength(BUY)
+│   └── AddSignal()
+│
+├── EvaluateBody(BUY)
+│   ├── CheckBodyPercent()
+│   ├── CheckBodyDirection(BUY)
+│   ├── CheckUpperWick(BUY)
+│   ├── CheckLowerWick(BUY)
+│   └── AddSignal()
+│
+├── EvaluateBreakout(BUY)
+│   ├── CheckBreakout(BUY)
+│   ├── CheckMomentum(BUY)
+│   ├── CheckFalseBreakout(BUY)
+│   └── AddSignal()
+│
+└── StoreBuyScore()
+
+=========================================================
+SELL SCORING
+=========================================================
+
+CalculateSellScore()
+│
+├── ResetSellScore()
+│
+├── EvaluateEMA(SELL)
+│   ├── CheckEMAAlignment(SELL)
+│   ├── CheckEMASlope(SELL)
+│   ├── CheckEMADistance(SELL)
+│   └── AddSignal()
+│
+├── EvaluateRSI(SELL)
+│   ├── SelectRSIProfile()
+│   │   ├── TrendRSIZones()
+│   │   └── RangeRSIZones()
+│   │
+│   ├── CheckFilteredRSI(SELL)
+│   ├── CheckRSIVelocity(SELL)
+│   ├── CheckRSIAcceleration(SELL)
+│   ├── ValidateRSIZone(SELL)
+│   └── AddSignal()
+│
+├── EvaluateADX(SELL)
+│   ├── CheckADXThreshold()
+│   ├── CheckADXSlope(SELL)
+│   ├── CheckADXAcceleration(SELL)
+│   ├── ValidateTrendStrength(SELL)
+│   └── AddSignal()
+│
+├── EvaluateBody(SELL)
+│   ├── CheckBodyPercent()
+│   ├── CheckBodyDirection(SELL)
+│   ├── CheckUpperWick(SELL)
+│   ├── CheckLowerWick(SELL)
+│   └── AddSignal()
+│
+├── EvaluateBreakout(SELL)
+│   ├── CheckBreakout(SELL)
+│   ├── CheckMomentum(SELL)
+│   ├── CheckFalseBreakout(SELL)
+│   └── AddSignal()
+│
+└── StoreSellScore()
+
+=========================================================
+SCORING ENGINE
+=========================================================
+
+CompareScores()
+│
+├── CompareBuyVsSell()
+├── DetermineWinningSide()
+└── StoreWinningScore()
+
+ApplyMinimumScore()
+│
+├── ValidateBuyScore()
+└── ValidateSellScore()
+
+ApplyEMAMandate()
+│
+├── ValidateBuyEMA()
+└── ValidateSellEMA()
+
+=========================================================
+DECISION FILTERS
+=========================================================
+
+ApplyDecisionFilters()
+│
+├── FilterExistingPosition()
+├── FilterDuplicateSignal()
+├── FilterTradingSession()
+└── FilterMinimumBars()
+
+=========================================================
+CONFLICT RESOLUTION
+=========================================================
+
+ResolveConflicts()
+│
+├── BothSignalsTriggered()
+├── EqualScores()
+├── NoSignalPassed()
+└── ResolveWinner()
+
+=========================================================
+FINAL DECISION
+=========================================================
+
+SelectFinalDecision()
+│
+├── SelectBUY()
+├── SelectSELL()
+└── SelectNO_TRADE()
+
+PublishDecision()
+│
+├── PublishSignal()
+├── PublishBuyScore()
+├── PublishSellScore()
+├── PublishDecisionReason()
+└── PublishSignalStates()
+
+=========================================================
+HELPERS
+=========================================================
+
+ResetDecision()
+
+ResetBuyScore()
+
+ResetSellScore()
+
+AddSignal()
+
+NormalizeScore()
+
+ClampScore()
+
+ScorePassed()
+
+ScoreFailed()
