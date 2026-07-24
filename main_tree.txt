@@ -191,6 +191,11 @@ RunTradingCycle()
 │   ├── UpdateMarket()
 │   ├── UpdateAccount()
 │   └── UpdatePosition()
+├── ManageEmergencyConditions()
+│   ├── CheckMaxSpread()
+│   ├── EmergencyExit()
+│   ├── CheckBrokerFreeze()
+│   └── CheckMarginCallRisk()
 │
 ├── IF(NewBar)
 │   │
