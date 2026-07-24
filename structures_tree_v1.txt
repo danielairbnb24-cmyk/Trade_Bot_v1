@@ -27,22 +27,6 @@ ClearStructures()
 └── ClearLoggerData()
 
 =========================================================
-INDICATOR DATA
-=========================================================
-
-UpdateIndicatorData()
-│
-├── UpdateEMAData()
-├── UpdateRSIData()
-├── UpdateADXData()
-├── UpdateATRData()
-├── UpdateWPRData()
-├── UpdateCandleStatistics()
-├── UpdateDerivedValues()
-├── ValidateIndicatorData()
-└── PublishIndicatorData()
-
-=========================================================
 STRATEGY DATA
 =========================================================
 
