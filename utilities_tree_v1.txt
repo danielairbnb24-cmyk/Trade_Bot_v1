@@ -109,7 +109,7 @@ UpdateAccount()
 POSITION UTILITIES
 =========================================================
 
-UpdatePosition()
+RefreshPositionState()
 │
 ├── ReadPosition()
 ├── UpdatePositionType()
