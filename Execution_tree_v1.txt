@@ -25,12 +25,12 @@ MAIN ENGINE
 =========================================================
 
 ExecuteDecision()
-│
 ├── CanTrade()
-│
-├── ExecuteBuy()
-│
-└──  ExecuteSell()
+├── if Decision == BUY
+│ └── ExecuteBuy()
+├── else if Decision == SELL
+│ └── ExecuteSell()
+└── UpdatePosition()
 =========================================================
 BUY EXECUTION
 =========================================================
