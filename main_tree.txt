@@ -203,7 +203,7 @@ RunTradingCycle()
 │
 ├── ExecuteDecision()
 │
-├── ManageOpenPositions()
+├── ManagePosition()
 │
 ├── UpdateDashboard()
 │
