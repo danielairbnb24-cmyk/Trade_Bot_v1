@@ -104,25 +104,33 @@ ExecuteSell()
 POSITION MANAGEMENT
 =========================================================
 
-UpdatePosition()
+ManagePosition()
 │
-├── UpdateTradeInformation()
-│
-├── UpdateFloatingProfit()
-│
-├── UpdateTradeStage()
-│
-├── ManageStopLoss()
-│
-├── ManageTakeProfit()
+├── RefreshTradeState()
 │
 ├── CheckBreakEven()
+│   ├── BreakEvenEligible()
+│   ├── CalculateBreakEven()
+│   └── MoveToBreakEven()
 │
 ├── CheckTrailingStop()
+│   ├── TrailingEligible()
+│   ├── CalculateTrailingStop()
+│   └── ModifyStops()
 │
-├── CheckAdaptiveManagement()
+├── AdaptiveTradeManagement()
+│   ├── EvaluateMarketRegime()
+│   ├── EvaluateProfitState()
+│   ├── TightenStopLoss()
+│   ├── ExtendTakeProfit()
+│   └── LockProfit()
 │
 ├── CheckExitConditions()
+│   ├── StopLossHit()
+│   ├── TakeProfitHit()
+│   ├── StrategyExit()
+│   ├── TimeExit()
+│   └── EmergencyExit()
 │
 └── UpdateTradeStatistics()
 
