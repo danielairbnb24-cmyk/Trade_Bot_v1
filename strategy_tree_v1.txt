@@ -246,8 +246,6 @@ ResetSellScore()
 
 AddSignal()
 
-NormalizeScore()
-
 ClampScore()
 
 ScorePassed()
