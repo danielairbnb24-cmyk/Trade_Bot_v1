@@ -42,18 +42,6 @@ UpdateExecutionData()
 └── PublishExecutionData()
 
 =========================================================
-DASHBOARD DATA
-=========================================================
-
-UpdateDashboardData()
-│
-├── UpdateDashboardState()
-├── UpdateDashboardObjects()
-├── UpdateDashboardValues()
-├── ValidateDashboardData()
-└── PublishDashboardData()
-
-=========================================================
 LOGGER DATA
 =========================================================
 
