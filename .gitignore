@@ -1,5 +1,40 @@
-(indicators_tree_v1.txt and main_tree.txt are source/config files, no build artifacts, dependencies, or temp files detected)
+# Compiled and binary files
+*.mqh
 
-```gitignore
+# Dependencies
+node_modules/
+venv/
+.venv/
+__pycache__/
+.mypy_cache/
+.pytest_cache/
+target/
+.gradle/
 
-```
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# System files
+.DS_Store
+Thumbs.db
+.env
+.env.local
+*.env.*
+
+# Logs and temp files
+*.log
+*.tmp
+
+# Build artifacts
+dist/
+build/
+coverage/
+htmlcov/
+*.out
+*.exe
+*.dll
+*.so
+*.a
