@@ -106,6 +106,8 @@ LogPerformance()
 ├── LogProfit()
 ├── LogDrawdown()
 ├── LogTradeStatistics()
+├── LogMemory()
+├── LogExecutionTime()
 └── LogRuntime()
 
 =========================================================
