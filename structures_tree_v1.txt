@@ -27,22 +27,6 @@ ClearStructures()
 └── ClearLoggerData()
 
 =========================================================
-STRATEGY DATA
-=========================================================
-
-UpdateStrategyData()
-│
-├── UpdateMarketRegime()
-├── UpdateBuyScore()
-├── UpdateSellScore()
-├── UpdateWinningScore()
-├── UpdateSignalStates()
-├── UpdateDecision()
-├── UpdateDecisionReason()
-├── ValidateStrategyData()
-└── PublishStrategyData()
-
-=========================================================
 EXECUTION DATA
 =========================================================
 
