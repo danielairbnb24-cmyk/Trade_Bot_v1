@@ -30,10 +30,7 @@ ExecuteDecision()
 │
 ├── ExecuteBuy()
 │
-├── ExecuteSell()
-│
-└── UpdatePosition()
-
+└──  ExecuteSell()
 =========================================================
 BUY EXECUTION
 =========================================================
