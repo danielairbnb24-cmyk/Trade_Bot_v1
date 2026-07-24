@@ -7,14 +7,6 @@ INITIALIZATION
 =========================================================
 
 InitializeStructures()
-│
-├── InitializeMarketData()
-├── InitializeIndicatorData()
-├── InitializeStrategyData()
-├── InitializeExecutionData()
-├── InitializeDashboardData()
-├── InitializeLoggerData()
-└── ValidateStructures()
 
 ResetStructures()
 │
