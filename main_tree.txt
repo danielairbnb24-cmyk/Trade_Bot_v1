@@ -223,16 +223,15 @@ UpdateBarData()
 ├── UpdateIndicators()
 │   └── ConsumeMarketData()  // Reads from Utilities cache
 ├── GenerateDecision()
-├── UpdateStatistics()
+├── Execution::UpdateStatistics()
 └── ValidateBarData()
 
 =========================================================
 POSITION MANAGEMENT
 =========================================================
 
-ManageOpenPositions()=Execution::UpdatePosition()
-│
-├── UpdatePosition()
+ManageOpenPositions()
+├── Execution::UpdatePosition()
 ├── CheckBreakEven()
 ├── CheckTrailingStop()
 ├── CheckAdaptiveManagement()
