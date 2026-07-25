@@ -58,6 +58,20 @@ ExecuteBuy()
 │   └── ValidateTrade()
 │
 ├── SendBuyOrder()
+├──     Call OrderSend(g_trade_request)
+│   │   ├── Check Return Code
+│   │   │   ├── IF Success:
+│   │   │   │   ├── Log "Order Executed Successfully"
+│   │   │   │   └── Reset g_is_request_ready = false
+│   │   │   │
+│   │   │   └── IF Fail:
+│   │   │       ├── Log Error Code & Description
+│   │   │       ├── Reset g_is_request_ready = false
+│   │   │       └── (Optional) Trigger Emergency Routine
+│   │   │
+│   │   └── Refresh Deal Info (Optional: Update Position Immediately)
+│   │
+│   └── END IF
 │
 ├── ProcessTradeResult()
 │
@@ -91,6 +105,21 @@ ExecuteSell()
 │   └── ValidateTrade()
 │
 ├── SendSellOrder()
+│
+├── │  Call OrderSend(g_trade_request)
+│   │   ├── Check Return Code
+│   │   │   ├── IF Success:
+│   │   │   │   ├── Log "Order Executed Successfully"
+│   │   │   │   └── Reset g_is_request_ready = false
+│   │   │   │
+│   │   │   └── IF Fail:
+│   │   │       ├── Log Error Code & Description
+│   │   │       ├── Reset g_is_request_ready = false
+│   │   │       └── (Optional) Trigger Emergency Routine
+│   │   │
+│   │   └── Refresh Deal Info (Optional: Update Position Immediately)
+│   │
+│   └── END IF
 │
 ├── ProcessTradeResult()
 │
