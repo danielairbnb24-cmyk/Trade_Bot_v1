@@ -1,6 +1,5 @@
 =========================================================
 Utilities.mqh
-FINAL FUNCTION TREE (LOCKED V1.0)
 =========================================================
 
 =========================================================
@@ -21,6 +20,38 @@ ShutdownUtilities()
 ├── ClearCaches()
 └── ResetUtilities()
 
+=========================================================
+GLOBAL VARIABLES
+=========================================================
+Global State
+    datetime g_last_candle_time
+    bool g_is_new_candle
+    ... (other existing globals)
+=========================================================
+DATA SYNCHRONIZATION
+=========================================================
+SyncCandleState()
+    ├── Get current bar time from terminal
+    ├── Compare current time with g_last_candle_time
+    ├── IF time has changed (New Candle):
+    │   ├── Set g_is_new_candle = true
+    │   ├── Update g_last_candle_time = current time
+    │   └── Call UpdateCurrentCandle()
+    │       ├── UpdateOpen()
+    │       ├── UpdateHigh()
+    │       ├── UpdateLow()
+    │       ├── UpdateClose()
+    │       ├── UpdateVolume()
+    │       ├── UpdateTime()
+    │       ├── CalculateCurrentBody()
+    │       ├── CalculateCurrentRange()
+    │       └── ValidateCurrentCandle()
+    └── ELSE (Same Candle):
+        ├── Set g_is_new_candle = false
+        └── Skip heavy updates (optional optimization)
+
+IsNewCandle()
+    └── Return g_is_new_candle
 =========================================================
 MARKET UTILITIES
 =========================================================
