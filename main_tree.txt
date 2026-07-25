@@ -197,12 +197,16 @@ RunTradingCycle()
 │   │
 │   ├── UpdateBarData()
 │   │   ├── UpdateIndicators()
-│   │   ├── GenerateDecision()
+│   │   ├── strategy::GenerateDecision()
 │   │   └── UpdateStatistics()
 │   │
 │   └── END IF
 │
-├── ExecuteDecision()
+├── IF(trade_request is ReadyToSend):
+│   │
+│   └── ExecuteDecision()               <-- PURE EXECUTION ONLY
+│       ├── Call OrderSend(g_trade_request)
+│       └── Log Result (Success/Fail)
 │
 ├── ManagePosition()
 │
