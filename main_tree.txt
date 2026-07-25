@@ -169,7 +169,7 @@ OnTick()
 ├── CheckConnection()
 │
 ├── UpdateTickData()
-    ├── Utilities::CheckNewBar()   //Sets g_is_new_bar = true;
+    ├── Utilities::SyncCandleState()   //Sets g_is_new_bar = true;
     ├── UpdateMarket()
     ├── UpdateAccount()
     ├── Utilities::ReadPosition() 
@@ -193,7 +193,7 @@ RunTradingCycle()
 │   ├── CheckBrokerFreeze()
 │   └── CheckMarginCallRisk()
 │
-├── IF(NewBar)                        //reads g_is_new_bar
+├── IF(Utilities::New Candle)                        //reads g_is_new_bar
 │   │
 │   ├── UpdateBarData()
 │   │   ├── UpdateIndicators()
