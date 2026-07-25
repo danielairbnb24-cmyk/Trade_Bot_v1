@@ -132,8 +132,6 @@ OnInit()
 │
 ├── InitializeLogger()
 │
-├── CreateIndicatorHandles()
-│
 ├── ValidateInitialization()
 │
 └── PrintStartupInformation()
