@@ -52,6 +52,8 @@ GenerateDecision()
 │
 ├── SelectFinalDecision()
 │
+├── ExecuteDecision()
+│
 └── PublishDecision()
 
 =========================================================
@@ -223,7 +225,33 @@ SelectFinalDecision()
 │
 ├── SelectBUY()
 ├── SelectSELL()
-└── SelectNO_TRADE()
+└── SelectNO_TRADE()  //sends TradeRequest
+
+ExecuteDecision(TradeRequest)
+│
+├── IF TradeRequest is Valid:
+│   │
+│   ├── PrepareOrder()
+│   │   ├── IF Buy:
+│   │   │   ├── Set EntryPrice = g_current_ask
+│   │   │   └── Set Type = ORDER_TYPE_BUY
+│   │   └── IF Sell:
+│   │       ├── Set EntryPrice = g_current_bid
+│   │       └── Set Type = ORDER_TYPE_SELL
+│   │
+│   ├── ApplyRiskLimits()
+│   │   ├── Calculate LotSize based on Equity
+│   │   ├── Adjust SL/TP based on Min/Max levels
+│   │   └── Check Margin Availability
+│   │
+│   └── SendMarketOrder()
+│       ├── Construct MqlTradeRequest
+│       ├── Set Deviation (Slippage)
+│       ├── Call OrderSend()
+│       └── Log Result (Success/Fail)
+│
+└── ELSE:
+    └── Discard Request
 
 PublishDecision()
 │
