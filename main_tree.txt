@@ -142,8 +142,6 @@ DEINITIALIZATION
 
 OnDeinit()
 │
-├── ReleaseIndicatorHandles()
-│
 ├── ShutdownDashboard()
 │
 ├── ShutdownLogger()
@@ -170,7 +168,12 @@ OnTick()
 │
 ├── CheckConnection()
 │
-├── DetectNewBar()
+├── UpdateTickData()
+    ├── Utilities::CheckNewBar()   //Sets g_is_new_bar = true;
+    ├── UpdateMarket()
+    ├── UpdateAccount()
+    ├── Utilities::ReadPosition() 
+    └── ValidateTickData()
 │
 ├── RunTradingCycle()
 │
@@ -184,18 +187,13 @@ RunTradingCycle()
 │
 ├── ResetTickState()
 │
-├── UpdateTickData()
-│   │
-│   ├── UpdateMarket()
-│   ├── UpdateAccount()
-│   └── UpdatePosition()
 ├── ManageEmergencyConditions()
 │   ├── CheckMaxSpread()
 │   ├── EmergencyExit()
 │   ├── CheckBrokerFreeze()
 │   └── CheckMarginCallRisk()
 │
-├── IF(NewBar)
+├── IF(NewBar)                        //reads g_is_new_bar
 │   │
 │   ├── UpdateBarData()
 │   │   ├── UpdateIndicators()
@@ -211,17 +209,6 @@ RunTradingCycle()
 ├── UpdateDashboard()
 │
 └── LogCycle()
-
-=========================================================
-TICK DATA
-=========================================================
-
-UpdateTickData()==Utilities::ReadPosition()
-│
-├── UpdateMarket()
-├── UpdateAccount()
-├── UpdatePosition()
-└── ValidateTickData()
 
 =========================================================
 BAR DATA
