@@ -177,6 +177,8 @@ OnTick()
 │
 ├── RunTradingCycle()
 │
+├── LogCycle()
+│
 └── SaveCurrentState()
 
 =========================================================
@@ -198,7 +200,7 @@ RunTradingCycle()
 │   ├── UpdateBarData()
 │   │   ├── UpdateIndicators()
 │   │   ├── strategy::GenerateDecision()
-│   │   └── UpdateStatistics()
+│   │   └── Execution::UpdateStatistics()
 │   │
 │   └── END IF
 │
@@ -223,7 +225,7 @@ UpdateBarData()
 ├── UpdateIndicators()
 │   └── ConsumeMarketData()  // Reads from Utilities cache
 ├── GenerateDecision()
-├── Execution::UpdateStatistics()
+├── Execution::UpdateMarketStatistics()
 └── ValidateBarData()
 
 =========================================================
@@ -295,7 +297,7 @@ SaveCurrentState()
 STATISTICS
 =========================================================
 
-UpdateStatistics()
+UpdateMarketStatistics()
 │
 ├── UpdateCycleCounter()
 ├── UpdateTickCounter()
