@@ -50,7 +50,40 @@ GenerateDecision()
 │
 ├── ResolveConflicts()
 │
-├── SelectFinalDecision()
+├── SelectFinalDecision()              //Buy or Sell or None
+│   │ ── IF(Direction is Valid):
+│   │
+│   ├── NormalizeValues()              <-- ADDED: Broker Compliance
+│   │   ├── Round Price to TickSize
+│   │   ├── Round Lot to Step
+│   │   └── Normalize SL/TP Distance
+│   │
+│   ├── FinalSafetyCheck()             <-- ADDED: Hard Constraints
+│   │   ├── Check Margin Requirement
+│   │   ├── Check Max Exposure
+│   │   └── Verify Account Mode
+│   │
+│   ├── IF(Safety Passed):
+│   │   │
+│   │   ├── PrepareValidatedRequest()  <-- ADDED: The Handoff Package
+│   │   │   ├── IF Buy:
+│   │   │   │   ├── Set Request.Type = ORDER_TYPE_BUY
+│   │   │   │   ├── Set Request.Price = g_current_ask
+│   │   │   │   ├── Set Request.SL = Normalized_SL
+│   │   │   │   ├── Set Request.TP = Normalized_TP
+│   │   │   │   └── Set Request.Volume = Normalized_Lot
+│   │   │   │
+│   │   │   └── IF Sell:
+│   │   │       ├── Set Request.Type = ORDER_TYPE_SELL
+│   │   │       ├── Set Request.Price = g_current_bid
+│   │   │       ├── Set Request.SL = Normalized_SL
+│   │   │       ├── Set Request.TP = Normalized_TP
+│   │   │       └── Set Request.Volume = Normalized_Lot
+│   │   │
+│   │   └── Set g_is_request_ready = true
+│   │
+│   └── ELSE (Safety Failed):
+│       └── Set g_is_request_ready = false
 │
 └── PublishDecision()
 
@@ -225,32 +258,9 @@ SelectFinalDecision()
 ├── SelectSELL()
 └── SelectNO_TRADE()  //sends TradeRequest
 
-ExecuteDecision(TradeRequest)
-│
-├── IF TradeRequest is Valid:
-│   │
-│   ├── PrepareOrder()
-│   │   ├── IF Buy:
-│   │   │   ├── Set EntryPrice = g_current_ask
-│   │   │   └── Set Type = ORDER_TYPE_BUY
-│   │   └── IF Sell:
-│   │       ├── Set EntryPrice = g_current_bid
-│   │       └── Set Type = ORDER_TYPE_SELL
-│   │
-│   ├── ApplyRiskLimits()
-│   │   ├── Calculate LotSize based on Equity
-│   │   ├── Adjust SL/TP based on Min/Max levels
-│   │   └── Check Margin Availability
-│   │
-│   └── SendMarketOrder()
-│       ├── Construct MqlTradeRequest
-│       ├── Set Deviation (Slippage)
-│       ├── Call OrderSend()
-│       └── Log Result (Success/Fail)
-│
-└── ELSE:
-    └── Discard Request
-
+=========================================================
+PUBLISH DECISION
+=========================================================
 PublishDecision()
 │
 ├── PublishSignal()
